@@ -1,20 +1,44 @@
-def encrypt(text,s):
-  result = ""
-     # transverse the plain text
-  for i in range(len(text)):
-        char = text[i]
-        # Encrypt uppercase characters in plain text
-        
-        if (char.isupper()):
-           result += chr((ord(char) + s-65) % 26 + 65)
-        # Encrypt lowercase characters in plain text
-        else:
-           result += chr((ord(char) + s - 97) % 26 + 97)
-        return result
-#check the above function
-text = "CEASER CIPHER DEMO"
-s = 4
+def encrypt_decrypt(question):
 
-print ("Plain Text : " + text)
-print ("Shift pattern : " + str(s))
-print ("Cipher: " + encrypt(text,s))
+  while True:
+    response = input(question).lower()
+    
+    if response == "decrypt" or response == "d":
+      return "decrypt"
+
+    elif response == "encrypt" or response == "e":
+      return "encrypt"
+
+    else:
+      print ("Please enter Encrypt or Decrypt")
+
+def encrypt_text(input,n):
+    ans = ""
+    # iterate over the given text
+    for i in range(len(input)):
+        ch = input[i]
+        
+        # check if space is there then simply add space
+        if ch==" ":
+            ans+=" "
+        # check if a character is uppercase then encrypt it accordingly 
+        elif (ch.isupper()):
+            ans += chr((ord(ch) + n-65) % 26 + 65)
+        # check if a character is lowercase then encrypt it accordingly
+        
+        else:
+            ans += chr((ord(ch) + n-97) % 26 + 97)
+    
+    return ans
+
+
+response = encrypt_decrypt("Would like to Encrypt or Decrypt? ")
+    
+if response == "encrypt":
+  print("encrypt goes here")
+  
+  input = input().lower()
+n = 1
+print("Plain Text is : " + input)
+print("Shift pattern is : " + str(n))
+print("Cipher Text is : " + encrypt_text(input,n))

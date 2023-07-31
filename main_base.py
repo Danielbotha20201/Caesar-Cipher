@@ -16,8 +16,8 @@ def encrypt_decrypt(question):
 while True:
   response = encrypt_decrypt("Would like to Encrypt or Decrypt? ")
     
-  if response == "decrypt":
-   print("Decrypt goes here")
+  if response == "encrypt":
+   print("encrypt goes here")
   
   print("program continues...")
   print()
