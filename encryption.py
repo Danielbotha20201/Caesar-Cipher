@@ -1,3 +1,4 @@
+# Functions
 def encrypt_decrypt(question):
 
   while True:
@@ -12,11 +13,11 @@ def encrypt_decrypt(question):
     else:
       print ("Please enter Encrypt or Decrypt")
 
-def encrypt_text(input,n):
+def encrypt_text(my_input,n):
     ans = ""
     # iterate over the given text
-    for i in range(len(input)):
-        ch = input[i]
+    for i in range(len(my_input)):
+        ch = my_input[i]
         
         # check if space is there then simply add space
         if ch==" ":
@@ -31,14 +32,13 @@ def encrypt_text(input,n):
     
     return ans
 
+# Main code
 
 response = encrypt_decrypt("Would like to Encrypt or Decrypt? ")
     
 if response == "encrypt":
-  print("encrypt goes here")
-  
-  input = input().lower()
-n = 1
-print("Plain Text is : " + input)
+  my_input = input("Please enter code here: ")
+  n = int(input("Please enter shift key: "))
+print("Plain Text is : " + my_input)
 print("Shift pattern is : " + str(n))
-print("Cipher Text is : " + encrypt_text(input,n))
+print("Cipher Text is : " + str(encrypt_text(my_input,n)))

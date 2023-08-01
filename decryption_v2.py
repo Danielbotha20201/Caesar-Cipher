@@ -3,6 +3,20 @@ from time import sleep
 
 alphabet = string.ascii_lowercase # "abcdefghijklmnopqrstuvwxyz"
 
+def encrypt_decrypt(question):
+
+  while True:
+    response = input(question).lower()
+    
+    if response == "decrypt" or response == "d":
+      return "decrypt"
+
+    elif response == "encrypt" or response == "e":
+      return "encrypt"
+
+    else:
+      print ("Please enter Encrypt or Decrypt")
+
 def decrypt():
     
     print("Welcome to Caesar Cipher Decryption.\n")
@@ -22,11 +36,7 @@ def decrypt():
         else:
             decrypted_message += c
 
-    print("\nDecrypting your message...\n")
-    sleep(2) # give an appearance of doing something complicated
-    print("Stand by, almost finished...\n")
-    sleep(2) # more of the same
-    print("Your decrypted message is:\n")
+    
     print(decrypted_message)
 
 decrypt()
