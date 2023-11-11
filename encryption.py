@@ -13,22 +13,22 @@ def encrypt_decrypt(question):
     else:
       print ("Please enter Encrypt or Decrypt")
 
-def encrypt_text(my_input,n):
+def encrypt_text(message,key):
     ans = ""
     # iterate over the given text
-    for i in range(len(my_input)):
-        ch = my_input[i]
+    for i in range(len(message)):
+        ch = message[i]
         
         # check if space is there then simply add space
         if ch==" ":
             ans+=" "
         # check if a character is uppercase then encrypt it accordingly 
         elif (ch.isupper()):
-            ans += chr((ord(ch) + n-65) % 26 + 65)
+            ans += chr((ord(ch) + key-65) % 26 + 65)
         # check if a character is lowercase then encrypt it accordingly
         
         else:
-            ans += chr((ord(ch) + n-97) % 26 + 97)
+            ans += chr((ord(ch) + key-97) % 26 + 97)
     
     return ans
 
@@ -37,8 +37,7 @@ def encrypt_text(my_input,n):
 response = encrypt_decrypt("Would like to Encrypt or Decrypt? ")
     
 if response == "encrypt":
-  my_input = input("Please enter code here: ")
-  n = int(input("Please enter shift key: "))
-print("Plain Text is : " + my_input)
-print("Shift pattern is : " + str(n))
-print("Cipher Text is : " + str(encrypt_text(my_input,n)))
+  message = input("Please enter your message here: ")
+  key = int(input("Please enter shift key: "))
+
+print("Encrypted Text is : " + str(encrypt_text(message,key)))
